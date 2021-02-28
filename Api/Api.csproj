@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>LibraryManagementSystem.Api</RootNamespace>
+    <AssemblyName>LibraryManagementSystem.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\Modules\Book\Service\Protos\book.proto">
+      <GrpcServices>Client</GrpcServices>
+      <Access>Public</Access>
+      <ProtoCompile>True</ProtoCompile>
+      <CompileOutputs>True</CompileOutputs>
+      <OutputDir>obj\Debug\net5.0\</OutputDir>
+      <Generator>MSBuild:Compile</Generator>
+      <Link>Protos\book.proto</Link>
+    </Protobuf>
+  </ItemGroup>
+
+</Project>

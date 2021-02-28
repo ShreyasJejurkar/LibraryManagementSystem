@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "LibraryManagement.Protobuf";
+
+service Book {
+	rpc GetBook (GetBookRequest) returns (GetBookResponse);
+	rpc GetAllBooks (google.protobuf.Empty) returns (GetAllBooksResponse);
+	rpc AddBook (AddBookRequest) returns (AddBookResponse);
+	rpc RemoveBook (RemoveBookRequest) returns (RemoveBookResponse);
+}
+
+message AddBookRequest {
+	string bookName = 1;
+	int32 authorId = 2;
+}
+
+message AddBookResponse {
+	int32 bookId = 1;
+}
+
+message GetBookRequest {
+	int32 bookId = 1;
+}
+
+message GetBookResponse {
+	int32 bookId = 1;
+	string bookName = 2;
+	int32 authorId = 3;
+}
+
+message GetAllBooksResponse {
+    repeated GetBookResponse getBookResponse = 1;
+}
+
+message RemoveBookRequest {
+    int32 bookId = 1;
+}
+
+message RemoveBookResponse {
+    bool Deleted = 1;
+}
