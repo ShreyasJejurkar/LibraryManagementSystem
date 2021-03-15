@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Api.Domain
+﻿namespace LibraryManagement.Author.Domain
 {
     public class Author
     {

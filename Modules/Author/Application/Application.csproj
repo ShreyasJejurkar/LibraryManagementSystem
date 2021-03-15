@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>LibraryManagement.Author.Application</AssemblyName>
+        <RootNamespace>LibraryManagement.Author.Application</RootNamespace>
+    </PropertyGroup>
+
+</Project>

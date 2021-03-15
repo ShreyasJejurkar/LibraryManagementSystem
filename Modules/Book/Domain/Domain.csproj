@@ -4,6 +4,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <AssemblyName>LibraryManagement.Book.Domain</AssemblyName>
         <RootNamespace>LibraryManagement.Book.Domain</RootNamespace>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
 </Project>

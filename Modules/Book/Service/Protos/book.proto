@@ -11,32 +11,32 @@ service Book {
 }
 
 message AddBookRequest {
-	string bookName = 1;
-	int32 authorId = 2;
+	string name = 1;
+	int32 author_Id = 2;
 }
 
 message AddBookResponse {
-	int32 bookId = 1;
+	int32 Id = 1;
 }
 
 message GetBookRequest {
-	int32 bookId = 1;
+	int32 Id = 1;
 }
 
 message GetBookResponse {
-	int32 bookId = 1;
-	string bookName = 2;
-	int32 authorId = 3;
+	int32 Id = 1;
+	string name = 2;
+	int32 author_Id = 3;
 }
 
 message GetAllBooksResponse {
-    repeated GetBookResponse getBookResponse = 1;
+    repeated GetBookResponse get_Book_Response = 1;
 }
 
 message RemoveBookRequest {
-    int32 bookId = 1;
+    int32 Id = 1;
 }
 
 message RemoveBookResponse {
-    bool Deleted = 1;
+    bool deleted = 1;
 }

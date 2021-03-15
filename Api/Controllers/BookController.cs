@@ -5,42 +5,33 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagementSystem.Api.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class BookController : ControllerBase
+    public class BookController : GrpcControllerBase<Book.BookClient>
     {
-        private readonly Book.BookClient _bookClient;
-
-        public BookController(Book.BookClient bookClient)
-        {
-            _bookClient = bookClient;
-        }
-
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var allBooksResponse = await _bookClient.GetAllBooksAsync(new Empty());
+            var allBooksResponse = await Service.GetAllBooksAsync(new Empty());
             return Ok(allBooksResponse.GetBookResponse);
         }
         
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var bookResponse = await _bookClient.GetBookAsync(new GetBookRequest { BookId = id });
+            var bookResponse = await Service.GetBookAsync(new GetBookRequest { Id = id });
             return Ok(bookResponse);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(AddBookRequest bookRequest)
         {
-            var serviceResponse =  await _bookClient.AddBookAsync(bookRequest);
+            var serviceResponse =  await Service.AddBookAsync(bookRequest);
             return Ok(serviceResponse);
         }
         
         [HttpDelete]
         public async Task<IActionResult> Delete(RemoveBookRequest request)
         {
-            var response = await _bookClient.RemoveBookAsync(request);
+            var response = await Service.RemoveBookAsync(request);
             return Ok(response);
         }
     }

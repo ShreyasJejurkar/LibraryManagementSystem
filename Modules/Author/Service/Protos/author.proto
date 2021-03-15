@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "LibraryManagement.Protobuf";
+
+service Author {
+	rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse);
+	rpc GetAllAuthors (google.protobuf.Empty) returns (GetAllAuthorsResponse);
+}
+
+message GetAuthorRequest {
+	int32 authorId = 1;
+}
+
+message GetAuthorResponse {
+	int32 authorId = 1;
+	string authorName = 2;
+}
+
+message GetAllAuthorsResponse {
+    repeated GetAuthorResponse getAuthorResponse = 1;
+}

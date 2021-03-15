@@ -25,6 +25,11 @@ namespace LibraryManagementSystem.Api
                 o.Address = new Uri(_configuration["ServicesConfiguration:BookServiceUrl"]);
             });
             
+            services.AddGrpcClient<Author.AuthorClient>(o =>
+            {
+                o.Address = new Uri(_configuration["ServicesConfiguration:AuthorServiceUrl"]);
+            });
+            
             services.AddSwaggerGen();
         }
 
@@ -39,7 +44,7 @@ namespace LibraryManagementSystem.Api
 
             app.UseSwaggerUI(option =>
             {
-                option.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Service");
+                option.SwaggerEndpoint("/swagger/v1/swagger.json", "Library Management System API");
             });
 
             app.UseRouting();

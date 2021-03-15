@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagement.Book.Infrastructure.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20210228145347_first")]
+    [Migration("20210315142222_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,8 @@ namespace LibraryManagement.Book.Infrastructure.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("BookName")
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
